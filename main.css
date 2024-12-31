@@ -1,0 +1,296 @@
+:root {
+  --facebook_color: hsl(208, 92%, 53%);
+  --twitter_color: hsl(203, 89%, 53%);
+  --instagram_color: linear-gradient(to left, hsl(37, 97%, 70%) , hsl(329, 70%, 58%));
+  --youTube_color: hsl(348, 97%, 39%);
+  --primary-color: hsl(163, 72%, 41%);
+  --secondry-color: hsl(356, 69%, 56%);
+  --toggle_lightMode_color: linear-gradient(to left, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+  --toggle_darkMode_color: hsl(230, 22%, 74%);
+  --background_color: hsl(230, 17%, 14%);
+  --dark_background_pattern: hsl(232, 19%, 15%);
+  --dark_card_background_color: hsl(228, 28%, 20%);
+  --text_darkMode_color: hsl(228, 34%, 66%);
+  --top_background_pattern: hsl(225, 100%, 98%);
+  --card_background_color: hsl(227, 47%, 96%);
+  --text_lightMode_color: hsl(228, 12%, 44%);
+  --dark_text_color: hsl(230, 17%, 14%);
+  --white_color: hsl(0, 0%, 100%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: var(--white_color);
+  transition: 0.5s;
+}
+
+.container {
+  padding: 50px 120px 0;
+}
+@media (max-width: 767px) {
+  .container {
+    padding: 50px 30px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    padding: 50px;
+  }
+}
+
+.light-text {
+  color: var(--text_lightMode_color);
+}
+
+.dark-text {
+  color: var(--text_darkMode_color);
+}
+
+.up {
+  color: var(--primary-color);
+}
+
+.down {
+  color: var(--secondry-color);
+}
+
+.col {
+  background-color: var(--top_background_pattern);
+}
+.col:hover {
+  background-color: var(--card_background_color);
+}
+.col.dark-mode {
+  background-color: var(--dark_card_background_color);
+}
+.col.dark-mode:hover {
+  background-color: var(--dark_background_pattern);
+}
+
+h3 {
+  color: var(--background_color);
+}
+h3.dark-mode {
+  color: var(--white_color);
+}
+
+.details > span {
+  color: var(--background_color);
+}
+.details > span.dark-mode {
+  color: var(--white_color);
+}
+
+/* Start Header And Toggle Btn */
+header {
+  height: 300px;
+  background-color: var(--top_background_pattern);
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+  transition: 0.5s;
+}
+header .container nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  header .container nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 767px) {
+  header .container nav .main-head {
+    width: 100%;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid;
+  }
+}
+header .container nav .main-head h2 {
+  color: var(--background_color);
+  transition: 0.5s;
+  margin-bottom: 10px;
+}
+header .container nav .main-head h2.dark-mode {
+  color: var(--white_color);
+}
+header .container nav .btn {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  header .container nav .btn {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+header .container nav .btn .mode {
+  font-weight: 500;
+}
+header .container nav .btn .toggle {
+  width: 60px;
+  height: 30px;
+  background-color: var(--twitter_color);
+  border-radius: 35px;
+  position: relative;
+  padding: 5px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+header .container nav .btn .toggle.dark-mode {
+  background: linear-gradient(to left, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+}
+header .container nav .btn .toggle span {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+header .container nav .btn .toggle span.light {
+  right: 5px;
+  transform: translateX(0);
+  background-color: var(--top_background_pattern);
+}
+header .container nav .btn .toggle span.dark {
+  transform: translateX(-28px);
+  background-color: var(--background_color);
+}
+
+/* End Header And Toggle Btn */
+/* Start Followers Section */
+section.landing {
+  position: relative;
+  top: 120px;
+}
+@media (max-width: 767px) {
+  section.landing {
+    top: 155px;
+  }
+}
+section.landing .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 75px 30px;
+}
+section.landing .container > .col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+  padding: 40px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+section.landing .container > .col:first-child {
+  border-top: 5px solid var(--facebook_color);
+}
+section.landing .container > .col:nth-child(2) {
+  border-top: 5px solid var(--twitter_color);
+}
+section.landing .container > .col:nth-child(3) {
+  position: relative;
+}
+section.landing .container > .col:nth-child(3)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(to left, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+  border-radius: 5px;
+}
+section.landing .container > .col:last-child {
+  border-top: 5px solid var(--youTube_color);
+}
+section.landing .container > .col .icon {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+section.landing .container > .col .icon span {
+  margin-left: 10px;
+}
+section.landing .container > .col .info h3 {
+  font-size: 55px;
+  transition: 0.5s;
+}
+section.landing .container > .col .info h3.dark-mode {
+  color: var(--white_color);
+}
+section.landing .container > .col .info > span {
+  margin-block: 20px 30px;
+  display: block;
+  font-size: 16px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+section.landing .container > .col .info .today-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section.landing .container > .col .info .today-info span {
+  margin-left: 6px;
+}
+
+/* End Followers Section */
+section.overview {
+  position: relative;
+  top: 120px;
+}
+section.overview .container {
+  padding-bottom: 100px;
+}
+section.overview .container .info {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 35px;
+}
+section.overview .container .col {
+  padding: 35px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+section.overview .container .col .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+section.overview .container .col .content span {
+  font-size: 17px;
+}
+section.overview .container .col .details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section.overview .container .col .details > span {
+  font-size: 33px;
+  font-weight: bold;
+}
+section.overview .container .col .details .icon {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+section.overview .container .col .details .icon span {
+  margin-left: 3px;
+}/*# sourceMappingURL=main.css.map */

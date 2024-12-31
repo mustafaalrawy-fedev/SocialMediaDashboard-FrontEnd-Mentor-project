@@ -1,0 +1,98 @@
+// Import Mixins
+@use "../helpers/mixins" as *;
+
+:root {
+    // Primary Social Colors
+    --facebook_color: hsl(208, 92%, 53%);
+    --twitter_color: hsl(203, 89%, 53%);
+    --instagram_color: linear-gradient(to left, hsl(37, 97%, 70%) , hsl(329, 70%, 58%));
+    --youTube_color: hsl(348, 97%, 39%);
+    // Primary
+    --primary-color : hsl(163, 72%, 41%); // Lime Green
+    --secondry-color : hsl(356, 69%, 56%); // Bright Red
+    
+    // Toogle Theme
+    // Dark Mode
+    --toggle_lightMode_color: linear-gradient(to left, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+    //  Light Mode
+    --toggle_darkMode_color: hsl(230, 22%, 74%);
+
+    // Netural
+    // Dark Mode
+    --background_color: hsl(230, 17%, 14%); // (BG) // very_vark_blue
+    --dark_background_pattern: hsl(232, 19%, 15%); // (Top BG Pattern) // very_dark_blue
+    --dark_card_background_color: hsl(228, 28%, 20%); // (Card BG) // dark_desaturated_blue
+    --text_darkMode_color: hsl(228, 34%, 66%); // (Text) // desaturated_blue
+    // Light Mode
+    --top_background_pattern: hsl(225, 100%, 98%); //Very Pale Blue // (Top BG Pattern)
+    --card_background_color: hsl(227, 47%, 96%); // Light Grayish Blue (Card BG)
+    --text_lightMode_color: hsl(228, 12%, 44%);// Dark Grayish Blue (Text)
+    --dark_text_color: hsl(230, 17%, 14%);//Very Dark Blue (Text)
+
+    // White Color To Use
+    --white_color: hsl(0, 0%, 100%); // (Text) in DarkMode / (BG) in LightMode
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-size: 14px;
+    // Font-Family : inter;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: var(--white_color);
+    transition: 0.5s;
+}
+.container {
+    padding: 50px 120px 0; 
+    @include media(mobile) {
+        padding: 50px 30px;
+    }
+    @include media(small) {
+        padding: 50px;
+    }
+}
+.light-text {
+    color: var(--text_lightMode_color);
+}
+.dark-text {
+    color: var(--text_darkMode_color);
+}
+.up {
+    color: var(--primary-color);
+}
+.down {
+    color: var(--secondry-color);
+}
+.col {
+    background-color: var(--top_background_pattern);
+    &:hover {
+        background-color: var(--card_background_color);
+    }
+    &.dark-mode {
+        background-color: var(--dark_card_background_color);
+        &:hover {
+            background-color: var(--dark_background_pattern);
+        }
+    }
+}
+
+h3 {
+    color: var(--background_color);
+    &.dark-mode {
+        color: var(--white_color);
+    }
+}
+.details > span {
+    color: var(--background_color);
+    &.dark-mode {
+        color: var(--white_color);
+    }
+}
+
+
+
+// body {
+//     // background-color: var(--background_color);
+// }

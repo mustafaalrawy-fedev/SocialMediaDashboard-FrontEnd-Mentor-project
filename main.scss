@@ -1,0 +1,228 @@
+// Import Global Rules
+@use "./sass/rules/global_rules";
+
+// Import Mixins
+@use "./sass/helpers/mixins" as *;
+
+
+/* Start Header And Toggle Btn */
+header {
+    height: 300px;
+    background-color: var(--top_background_pattern);
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+    transition: 0.5s;
+    .container {
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @include media(mobile) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .main-head {
+                @include media(mobile) {
+                    width: 100%;
+                    padding-bottom: 25px;
+                    margin-bottom: 25px;
+                    border-bottom: 1px solid;
+                }
+                h2 {   
+                    color: var(--background_color);
+                    transition: 0.5s;
+                    margin-bottom: 10px;
+                    &.dark-mode {
+                        color: var(--white_color);
+                    }
+                }
+                // span {
+
+                // }
+            }
+            .btn {
+                display: flex;
+                align-items: center;
+                @include media(mobile) {
+                    justify-content: space-between;
+                    width: 100%;
+                }
+                .mode {
+                    font-weight: 500;
+                }
+                .toggle {
+                    width: 60px;
+                    height: 30px;
+                    background-color: var(--twitter_color);
+                    border-radius: 35px;
+                    position: relative;
+                    padding: 5px;
+                    margin-left: 15px;
+                    cursor: pointer;
+                    &.dark-mode {
+                        background: linear-gradient(to left,  hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+                    }
+                    span {
+                        position: absolute;
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 50%;
+                        transition: 0.5s;
+                        &.light {
+                            right: 5px;
+                            // transform: translateX(-28px);
+                            transform: translateX(0);
+                            background-color: var(--top_background_pattern);
+                        }
+                        &.dark {
+                            transform: translateX(-28px);
+                            background-color: var(--background_color);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* End Header And Toggle Btn */
+
+/* Start Followers Section */
+section.landing {
+    position: relative;
+    top: 120px;
+    @include media(mobile) {
+        top: 155px;
+    }
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 75px 30px;
+        > .col {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: auto;
+            width: 100%;
+            // background-color: var(--top_background_pattern);
+            padding: 40px;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.5s;
+            &:first-child {
+                border-top: 5px solid var(--facebook_color);
+            }
+            &:nth-child(2) {
+                border-top: 5px solid var(--twitter_color);
+            }
+            &:nth-child(3) {
+                position: relative;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 5px;
+                    width: 100%;
+                    background: linear-gradient(to left, hsl(37, 97%, 70%) , hsl(329, 70%, 58%));
+                    border-radius: 5px;
+                }
+            }
+            &:last-child{
+                border-top: 5px solid var(--youTube_color);
+            }
+            // &:hover {
+            //     background-color: var(--card_background_color);
+            // }
+            .icon {
+                margin-bottom: 15px;
+                display: flex;
+                align-items: center;
+                span {
+                    margin-left: 10px;
+                }
+            }
+            .info {
+                h3 {
+                    font-size: 55px;
+                    transition: 0.5s;
+                    &.dark-mode {
+                        color: var(--white_color);
+                    }
+                }
+                > span {
+                    margin-block: 20px 30px;
+                    display: block;
+                    font-size: 16px;
+                    letter-spacing: 5px;
+                    text-transform: uppercase;
+                }
+                .today-info {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    span {
+                        margin-left: 6px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* End Followers Section */
+section.overview {
+    position: relative;
+    top: 120px;
+    .container {
+        padding-bottom: 100px;
+        // .head {
+        //     h2 {
+            
+        //     }
+        // }
+        .info {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 35px;
+        }
+        .col {
+            // background-color: var(--top_background_pattern);
+            padding: 35px;
+            cursor: pointer;
+            transition: 0.5s;
+            // &:hover {
+            //     background-color: var(--card_background_color);
+            // }
+            .content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 35px;
+                span {
+                    font-size: 17px;
+                }
+            }
+            .details {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                > span {
+                    font-size: 33px;
+                    font-weight: bold;
+                }
+                .icon {
+                    display: flex;
+                    align-items: center;
+                    font-weight: bold;
+                    span {
+                        margin-left: 3px;
+                    }
+                }
+            }
+        }
+    }
+}
