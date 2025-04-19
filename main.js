@@ -1,5 +1,3 @@
-// body , header, .mode , toggle, span, col
-
 const toggle = document.getElementById("toggle"),
 toggleBtn = document.querySelector(".toggle span"),
 mode = document.querySelector(".mode"),
